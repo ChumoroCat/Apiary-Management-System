@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>Apiary Management System v2</title>
+    </head>
+    <body class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <svg class="logo-icon">
+                    <image xlink:href="img/bee.svg"></image>
+                </svg>
+                AMS v2
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav__item">
+                    <a href="inspection" class="sidebar-nav__link">
+                        <span>Inspections</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="harvest" class="sidebar-nav__link">
+                        <span>Harvest</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="apiary" class="sidebar-nav__link">
+                        <span>Apiary</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="hives" class="sidebar-nav__link">
+                        <span>Hives</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="colony" class="sidebar-nav__link">
+                        <span>Colony</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="accounting" class="sidebar-nav__link">
+                        <span>Accounting</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="profile" class="sidebar-nav__link">
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item logOutBtn">
+                    <a href="index" class="sidebar-nav__link">
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <section class="container-body">
+            <div class="sub-nav">
+                <h1 class="sub-nav-header">Hives</h1>
+                <div class="button">
+                    <button class="button-harvest-create">Create</button>
+                    <button class="button-harvest-create">Download</button>
+                </div>
+            </div>
+            <div class="content hives">
+                <div class="hives-record">
+                    <h3 class="hives-record-header">Hives</h3>
+                    <div class="hives-record-heading">
+                        <p class="hives-record-heading-hives">Hives</p>
+                        <p class="hives-record-heading-type">Type of Hive</p>
+                        <p class="hives-record-heading-noofframes">No. of Frames</p>
+                        <p class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    </div>
+                    <div class="hives-record-detail">
+                        <p class="hives-record-detail-hives">Holey Hive</p>
+                        <p class="hives-record-detail-type">Soldier Bee Hive</p>
+                        <p class="hives-record-detail-noofframes">4</p>
+                        <button class="record_delete">&times;</button>
+                    </div>
+                    <div class="hives-record-detail">
+                        <p class="hives-record-detail-hives">Holey Hive</p>
+                        <p class="hives-record-detail-type">Soldier Bee Hive</p>
+                        <p class="hives-record-detail-noofframes">4</p>
+                        <button class="record_delete">&times;</button>
+                    </div>
+                    <div class="hives-record-detail">
+                        <p class="hives-record-detail-hives">Holey Hive</p>
+                        <p class="hives-record-detail-type">Soldier Bee Hive</p>
+                        <p class="hives-record-detail-noofframes">4</p>
+                        <button class="record_delete">&times;</button>
+                    </div>
+                </div>
+
+                <div class="create-hives hidden open-window">
+                    <form class = "form-container">
+                        <button class="close-window">&times;</button>
+                        <h3>Create a Hive</h2>
+                        <input type="text" id="hive-name" name="hive-name" placeholder="Name of Hive">
+                        <select id="hive-type" name="hive-type">
+                            <option value="Honey">Langstroth</option>
+                            <option value="Nucs">Warre</option>
+                            <option value="Queens">Top-Bar</option>
+                        </select>
+                        <input type="number" id="hive-noofframes" name="hive-noofframes" placeholder="Number of Frames">
+                        <input type="submit" value="Create">
+                        <div class="submit-text"></div>   
+                    </form>   
+                </div>
+                <div class="overlay hidden"></div>
+                <script src="script.js"></script>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+.sidebar {
+    background-color: $murdoch-black;
+    flex: 8%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-medium) {
+        height: auto;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+        flex: 8%;
+    }
+
+    &-nav{
+        font-size: 1.3rem;
+        list-style: none;
+
+        display: flex;
+        flex-direction: column;
+
+        @media only screen and (max-width: $bp-medium) {
+            font-size: 1.1rem;
+        
+        }
+
+        @media only screen and (max-width: $bp-small) {
+            font-size: 1rem;
+            padding: .35rem .35em;
+            flex-direction: row;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        &__link:link,
+        &__link:visited {
+
+            color: $color-grey-light-1;
+            text-decoration: none;
+            text-transform: uppercase;
+            display: block;
+            padding: 1.2rem 1.5em;
+
+            &:hover {
+                color: $murdoch-black;
+                background-color: $murdoch-red;
+                font-weight: 500;
+            }
+        }
+
+        & > .logOutBtn {
+            font-style: italic;            
+        }
+    }
+}
+
+.side-nav{
+    font-size: 1.2rem;
+    list-style: none;
+    margin-top: 2rem;
+
+}
+
+.logo {
+    color: $murdoch-red;
+    font-size: 1.7rem;
+    font-family: 'ZCOOL XiaoWei', serif;
+
+    &-icon{
+        padding-top: 1rem;
+        width: 2rem;
+        height: 3rem;
+    }
+}

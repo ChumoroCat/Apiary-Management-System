@@ -1,0 +1,96 @@
+.sub-nav {
+    background-color: $color-grey-light-1;
+    font-size: 3rem;
+    justify-content: space-between;
+    padding-left: 2rem;
+
+    display: flex;
+    align-items: center;
+
+    margin: 1rem 1rem;
+    padding: 1rem 1rem 1rem 2rem;
+    border-radius: 15px;
+
+    &-header {
+        font-size: 2rem;
+        font-weight: 300;
+    }
+
+}
+
+.button{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 1.5rem;
+    
+    a:link,
+    a:visited {
+        text-decoration: none;
+    }
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+        padding-right: 1rem;
+    }
+
+    & > .download > .downloadcsv {
+        height: 3.5rem;
+        width: 3.5rem;
+        margin-left: 1rem;
+    } 
+
+    &-harvest {
+        &-create {
+            font-size: 1.4rem;
+            color: white;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 20px;
+            background-color: $murdoch-black;
+
+            margin-right: .7rem;
+
+            &:hover {
+                color: $murdoch-red;
+                background-color: $murdoch-black;
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+        }
+        &-delete {
+            font-size: 1.4rem;
+            color: white;
+            padding: 1rem 1.5rem;
+            border: none;
+            border-radius: 20px;
+            background-color: $color-grey-light-3;
+
+            &:hover {
+                color: red;
+                background-color: $color-grey-dark-1;
+                transform: scale(1.2);
+                cursor: pointer;
+            }
+        }
+    }
+
+    &-back {
+        font-size: 1.7rem;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 20px;
+        background-color: $color-grey-light-3;
+
+        margin-right: .7rem;
+
+        &:hover {
+            color: yellow;
+            background-color: $color-grey-dark-1;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+    }
+}

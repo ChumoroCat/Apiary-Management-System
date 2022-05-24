@@ -1,0 +1,188 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; }
+  @media only screen and (max-width: 31.25em) {
+    html {
+      font-size: 50%; } }
+
+body {
+  color: #362E26;
+  font-weight: 300;
+  line-height: 1.6; }
+
+.container {
+  display: flex; }
+  @media only screen and (max-width: 37.5em) {
+    .container {
+      flex-direction: column; } }
+
+.container-body {
+  background-color: #DCE6EF;
+  flex: 89%; }
+
+.sidebar {
+  background-color: #362E26;
+  flex: 10%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  @media only screen and (max-width: 31.25em) {
+    .sidebar {
+      flex: 8%; } }
+  .sidebar-nav {
+    font-size: 1.2rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column; }
+    @media only screen and (max-width: 37.5em) {
+      .sidebar-nav {
+        padding: .35rem .35em;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap; } }
+    .sidebar-nav__link:link, .sidebar-nav__link:visited {
+      color: #f9f7f6;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: block;
+      padding: 1.5rem 1.8em; }
+      .sidebar-nav__link:link:hover, .sidebar-nav__link:visited:hover {
+        color: #E1EA2E;
+        background-color: #54483A; }
+
+.side-nav {
+  font-size: 1.2rem;
+  list-style: none;
+  margin-top: 2rem; }
+
+.logo {
+  color: #E1EA2E;
+  font-size: 1.7rem;
+  font-family: 'ZCOOL XiaoWei', serif; }
+  .logo-icon {
+    padding-top: 1rem;
+    width: 2rem;
+    height: 3rem; }
+
+.sub-nav {
+  background-color: #f9f7f6;
+  font-size: 2rem;
+  justify-content: space-between;
+  padding-left: 2rem;
+  display: flex;
+  align-items: center;
+  margin: 1rem 1rem;
+  padding: 1rem 1rem 1rem 2rem;
+  border-radius: 15px; }
+  .sub-nav-header {
+    font-size: 2rem;
+    font-weight: 300; }
+
+.button {
+  padding-right: 2rem; }
+  .button a:link,
+  .button a:visited {
+    text-decoration: none; }
+  .button-harvest-create {
+    font-size: 1.5rem;
+    color: white;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #aaa;
+    margin-right: .7rem; }
+    .button-harvest-create:hover {
+      color: #E1EA2E;
+      background-color: #54483A;
+      transform: scale(1.2);
+      cursor: pointer; }
+  .button-harvest-delete {
+    font-size: 1.5rem;
+    color: white;
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #aaa; }
+    .button-harvest-delete:hover {
+      color: red;
+      background-color: #54483A;
+      transform: scale(1.2);
+      cursor: pointer; }
+  .button-back {
+    font-size: 1.5rem;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #aaa;
+    margin-right: .7rem; }
+    .button-back:hover {
+      color: yellow;
+      background-color: #54483A;
+      transform: scale(1.2);
+      cursor: pointer; }
+
+.content {
+  background-color: #f9f7f6;
+  height: 80vh;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 1rem;
+  border-radius: 15px; }
+
+input[type=text],
+input[type=date],
+input[type=password],
+select {
+  width: 30rem;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  border: 3px solid #ccc;
+  border-radius: 10px;
+  display: inline-block;
+  box-sizing: border-box; }
+  input[type=text]:focus,
+  input[type=date]:focus,
+  input[type=password]:focus,
+  select:focus {
+    outline: none;
+    border: 3px solid red; }
+  @media only screen and (max-width: 31.25em) {
+    input[type=text],
+    input[type=date],
+    input[type=password],
+    select {
+      padding: 0.7rem 1.5rem; } }
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer; }
+  input[type=submit]:hover {
+    background-color: #64BB67;
+    transform: scale(1.05);
+    cursor: pointer; }
+  @media only screen and (max-width: 31.25em) {
+    input[type=submit] {
+      padding: 0.7rem 1.5rem; } }
+
+.form-container {
+  display: flex;
+  flex-direction: column; }
+  .form-container > label {
+    margin-bottom: -1rem; }

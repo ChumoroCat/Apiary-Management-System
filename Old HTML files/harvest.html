@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>Apiary Management System v2</title>
+    </head>
+    <body class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <svg class="logo-icon">
+                    <image xlink:href="img/bee.svg"></image>
+                </svg>
+                AMS v2
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav__item">
+                    <a href="inspection" class="sidebar-nav__link">
+                        <span>Inspections</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="harvest" class="sidebar-nav__link">
+                        <span>Harvest</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="apiary" class="sidebar-nav__link">
+                        <span>Apiary</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="hives" class="sidebar-nav__link">
+                        <span>Hives</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="colony" class="sidebar-nav__link">
+                        <span>Colony</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="accounting" class="sidebar-nav__link">
+                        <span>Accounting</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="profile" class="sidebar-nav__link">
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item logOutBtn">
+                    <a href="index" class="sidebar-nav__link">
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <section class="container-body">
+            <div class="sub-nav">
+                <h1 class="sub-nav-header">Harvest</h1>
+                <button class="button-harvest-create">Create</button>
+            </div>
+            <div class="content harvest">
+                <div class="harvest-record">
+                    <h3 class="harvest-record-header">Completed Harvests</h3>
+                    <div class="harvest-record-heading">
+                        <p class="harvest-record-heading-hive">Hive</p>
+                        <p class="harvest-record-heading-date">Date</p>
+                        <p class="harvest-record-heading-product">Product Type</p>
+                        <p class="harvest-record-heading-quantity">Quantity</p>                        
+                        <p class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>
+                    </div>
+                    <div class="harvest-record-detail">
+                        <p class="harvest-record-detail-hive">Maple Flower Pot</p>
+                        <p class="harvest-record-detail-date">05 Oct 2021</p>
+                        <p class="harvest-record-detail-product">Honey</p>
+                        <p class="harvest-record-detail-quantity">500ml</p>
+                        <button class="record_delete">&times;</button>
+                    </div>
+                    <div class="harvest-record-detail">
+                        <p class="harvest-record-detail-hive">Maple Flower Pot</p>
+                        <p class="harvest-record-detail-date">05 Oct 2021</p>
+                        <p class="harvest-record-detail-product">Honey</p>
+                        <p class="harvest-record-detail-quantity">500ml</p>
+                        <button class="record_delete">&times;</button>
+                    </div>
+                    <div class="harvest-record-detail">
+                        <p class="harvest-record-detail-hive">Maple Flower Pot</p>
+                        <p class="harvest-record-detail-date">05 Oct 2021</p>
+                        <p class="harvest-record-detail-product">Honey</p>
+                        <p class="harvest-record-detail-quantity">500ml</p>
+                        <button class="record_delete">&times;</button>
+                    </div>
+                </div>
+
+                <div class="harvest-create hidden open-window">
+                    
+                    <form class = "form-container">
+                        <button class="close-window">&times;</button>
+                        <h3>Record your Harvest</h2>
+                        <input type="date" id="harvest-date" name="harvest-date">   
+                        <input type="number" id="qty" name="quantity" placeholder="Quantity as a number">
+                        <select id="product" name="product">
+                            <option value="Honey">Honey</option>
+                            <option value="Nucs">Nucs</option>
+                            <option value="Queens">Queens</option>
+                        </select>
+                        <input type="submit" value="Submit">
+                        <div class="submit-text"></div>   
+                    </form>
+                </div>
+                <div class="overlay hidden"></div>
+                <script src="script.js"></script>              
+            </div>
+        </section>
+    </body>
+</html>

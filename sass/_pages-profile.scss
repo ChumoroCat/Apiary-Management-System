@@ -1,0 +1,30 @@
+.profile {
+
+    display: flex;
+
+    &-header-list {
+        list-style: none;
+        padding: .5rem;
+
+        &-item {
+            font-size: 1.5rem;
+            // background-image: linear-gradient(to bottom right, #C0E914 , white);
+            margin-bottom: .5rem;
+            padding: .5rem;
+            border-radius: 10%;
+        }
+    }
+
+    &-detail-list {
+        list-style: none;
+        padding: 1rem;
+
+        &-item {
+            font-size: 1.5rem;
+            // background-image: linear-gradient(to bottom right, #96D3FF , white);
+            margin-bottom: .5rem;
+            padding: .5rem;
+            border-radius: 10%;
+        }
+    }
+}

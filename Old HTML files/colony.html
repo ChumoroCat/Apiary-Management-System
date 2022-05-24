@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>Apiary Management System v2</title>
+
+        <!-- this script will send create-colony data to the database -->
+        <script type="application/javascript">
+            "use strict";
+                $(document).ready(function(){
+                    $(".create-button").click(function(){
+                        event.preventDefault();
+                        console.log("Button Clicked");
+
+                        var descriptionV = document.querySelector('#colony-description').value;
+                        var compositionV = document.querySelector('#colony-composition').value;
+
+                        $.post("insert-colony.php", 
+                        { 
+                            description: descriptionV,
+                            composition: compositionV
+                        });
+
+                        document.querySelector(".form-container").reset();
+                        $(".submit-text").text("Colony Created !");
+                    });
+                });
+        </script>
+
+    </head>
+    <body class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <svg class="logo-icon">
+                    <image xlink:href="img/bee.svg"></image>
+                </svg>
+                AMS v2
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav__item">
+                    <a href="inspection" class="sidebar-nav__link">
+                        <span>Inspections</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="harvest" class="sidebar-nav__link">
+                        <span>Harvest</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="apiary" class="sidebar-nav__link">
+                        <span>Apiary</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="hives" class="sidebar-nav__link">
+                        <span>Hives</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="colony" class="sidebar-nav__link">
+                        <span>Colony</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="accounting" class="sidebar-nav__link">
+                        <span>Accounting</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="profile" class="sidebar-nav__link">
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item logOutBtn">
+                    <a href="index" class="sidebar-nav__link">
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <section class="container-body">
+            <div class="sub-nav">
+                <h1 class="sub-nav-header">Colony</h1>
+                <div class="button">
+                    <button class="button-harvest-create">Create</button>
+                    <button class="button-harvest-create">Download</button>
+                </div>
+            </div>
+            <div class="content colony">
+                <div class="colony-record">
+                    <h3 class="colony-record-header">Colonies</h3>
+                    <div class="colony-record-heading">
+                        <p class="colony-record-heading-description">Description</p>
+                        <p class="colony-record-heading-composition">Composition</p>                        
+                        <p class="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        </p>                    
+                    </div>
+                    <!-- <div class="colony-record-detail">
+                        <p class="colony-record-detail-colony">Liu Bei Army</p>
+                        <p class="colony-record-detail-description">100,000 Man Strong</p>
+                        <p class="colony-record-detail-composition">Queen, Drones, Workers</p>
+                        <button class="record_delete">&times;</button>
+                    </div> -->
+
+                </div>
+
+                <div class="create-colony hidden open-window">
+                    <form class = "form-container">
+                        <button class="close-window">&times;</button>
+                        <h3>Create a Colony</h2>
+                        <input type="text" id="colony-description" name="colony-description" placeholder="Description">
+                        <input type="text" id="colony-composition" name="colony-composition" placeholder="Composition">
+                        <input type="submit" class="create-button" value="Create">
+                        <div class="submit-text"></div>   
+                    </form> 
+                </div>
+
+                <div class="create-colony hidden open-window-edit">
+                    <form class = "form-container">
+                        <button class="close-window">&times;</button>
+                        <h3>Edit this Colony</h2>
+                        <input type="text" id="colony-description-edit" name="colony-description" placeholder="Description">
+                        <input type="text" id="colony-composition-edit" name="colony-composition" placeholder="Composition">
+                        <input type="submit" class="update-button" value="Update">
+                        <div class="submit-text"></div>   
+                    </form> 
+                </div>
+                <div class="overlay hidden"></div>
+                <script src="script.js"></script>
+
+                <!-- this script displays a list of colonies -->
+                <script type="application/javascript">
+                    "use strict";
+                        $(document).ready(function(){
+                            $.ajax('display-colony.php',
+                            {
+                                type: "POST",
+                                success: function(data){
+                                    $(".colony-record").append(data);
+                                }    
+                            });
+                        });
+                </script>
+            </div>
+        </section>
+    </body>
+</html>

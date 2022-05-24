@@ -1,0 +1,103 @@
+// Colors
+$color-primary-light: #F2F6A5;
+$color-primary: #E1EA2E;
+$color-primary-dark: #C0C914;
+
+$color-secondary: #101d2c;
+
+$color-grey-light-1: #f9f7f6;
+$color-grey-light-2: #DCE6EF;
+$color-grey-light-3: #aaa;
+$color-grey-light-4: #EFEBDC;
+$color-grey-light-5: #E0EFDC;
+$color-grey-light-6: #EFDCE0;
+
+$color-grey-dark-1: #54483A;
+$color-grey-dark-2: #362E26;
+
+$murdoch-black: #050000;
+$murdoch-red: #CC2027;
+
+
+// Screen Sizes
+$bp-largest: 75em; //1200px
+$bp-large: 68.75em; //1100px
+$bp-medium: 50em; //800px
+$bp-small: 37.5em; //600px
+$bp-smallest: 31.25em; //500px
+
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; //1rem = 10px (10x/16px) default is 16px
+
+    @media only screen and (max-width: $bp-medium) {
+        font-size: 50%;
+    }
+}
+
+body{
+    color: $color-grey-dark-2;
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.container {
+    display: flex;
+
+    @media only screen and (max-width: $bp-small) {
+        flex-direction: column;
+    }
+}
+
+.container-body {
+    background-color: $color-grey-light-2;
+    flex: 80%;
+
+    @media only screen and (max-width: $bp-medium) {
+        height: 100%;
+    }
+
+}
+
+
+// Miscellaneous elements
+
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.record_delete {
+    font-size: 4rem;
+    font-weight: 600;
+    color: red;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.record_edit {
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    color: blue;
+    cursor: pointer;
+    border: none;
+    background: none;
+    margin-right: 1rem;
+}
+
+.submit-text {
+    font-size: 1.5rem;
+    color: green;
+    text-align: center;
+}

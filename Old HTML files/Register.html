@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>Apiary Management System v2</title>
+
+        <script type="application/javascript">
+            "use strict";
+                $(document).ready(function(){
+                    $(".create-button").click(function(){
+                        event.preventDefault();
+                        console.log("Button Clicked");
+
+                        var firstnameV = document.querySelector('#firstname').value;
+                        var lastnameV = document.querySelector('#lastname').value;
+                        var addressV = document.querySelector('#address').value;
+                        var contactV = document.querySelector('#contact').value;
+                        var emailV = document.querySelector('#email').value;
+                        var companynameV = document.querySelector('#companyname').value;
+                        var regnoV = document.querySelector('#regno').value;
+                        var regterritoryV = document.querySelector('#regterritory').value;
+                        var usernameV = document.querySelector('#username').value;
+                        var passwordV = document.querySelector('#password').value;
+                        var errortext = document.getElementById(".error-text");
+
+                        if (regnoV.length != 9)
+                        {
+                            $(".error-text").text("Registration Number needs to be 9 digits !");
+                            errortext.scrollIntoView(false);
+                        } else {
+                            $.post("insert-apiarist.php", 
+                            { 
+                                firstName: firstnameV, 
+                                lastName: lastnameV, 
+                                residentialAddress: addressV, 
+                                contactNo: contactV, 
+                                emailAddress: emailV,
+                                companyName: companynameV, 
+                                registrationNo: regnoV, 
+                                registrationTerritory: regterritoryV, 
+                                userName: usernameV, 
+                                password: passwordV, 
+                            });
+                            $(".error-text").text("");
+                            document.querySelector(".form-container").reset();
+                            $(".submit-text").text("Account Created !");
+                        }
+                    });
+                });
+        </script>
+    
+</head>
+    <body class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <svg class="logo-icon">
+                    <image xlink:href="img/bee.svg"></image>
+                </svg>
+                AMS v2
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav__item">
+                    <a href="index" class="sidebar-nav__link">
+                        <span>Search Honey Info</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="Register" class="sidebar-nav__link">
+                        <span>Apiarist Registration</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="Login" class="sidebar-nav__link">
+                        <span>Apiarist Login</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <section class="container-body">
+            <div class="sub-nav">
+                <h1 class="sub-nav-header">Registration Page</h1>
+            </div>
+            <div class="content apiarist-login">
+                <h2 class="apiarist-login-welcome-message">Welcome! Please Register Below</h2>
+                <form class = "form-container" > 
+                    <input type="text" id="firstname" name="firstname" placeholder="First Name">            
+                    <input type="text" id="lastname" name="lastname" placeholder="Last Name">            
+                    <input type="text" id="address" name="address" placeholder="Address">           
+                    <input type="number" id="contact" name="contact" placeholder="Contact Number">  
+                    <input type="email" id="email" name="email" placeholder="Email Address"> 
+                    <input type="text" id="companyname" name="companyname" placeholder="Company Name">     
+                    <input type="number" id="regno" name="regno" placeholder="Registration No">
+                    <div class="error-text"></div>                
+                    <input type="text" id="regterritory" name="regterritory" placeholder="Registration Territory">
+                    <input type="text" id="username" name="username" placeholder="Username">               
+                    <input type="password" id="password" name="password" placeholder="Password">         
+                    <input type="submit" class="create-button" value="Create"> 
+                    <div class="submit-text"></div>
+                </form>
+            </div>
+
+        </section>
+    </body>
+</html>

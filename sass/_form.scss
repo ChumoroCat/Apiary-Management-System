@@ -1,0 +1,82 @@
+input[type=text],
+input[type=number], 
+input[type=email], 
+input[type=date],
+input[type=password],
+select {
+    width: 25rem;
+
+    padding: .7rem 1.3rem;
+    margin: .5rem 0;
+    border: 3px solid #ccc;
+    border-radius: 10px;
+    font-size: 1.2rem;
+
+    display: inline-block;
+    box-sizing: border-box;
+
+    &:focus {
+        outline: none;
+        border: 3px solid red;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+        padding: 0.7rem 1.5rem;
+    }
+}
+
+input[type=submit] {
+    width: 25rem;
+
+    font-size: 1.2rem;
+    background-color: #4CAF50;
+    color: white;
+
+    padding: .7rem 1.3rem;
+    margin: .5rem 0;
+    
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #64BB67;
+        transform: scale(1.05);
+        cursor: pointer;
+    }
+
+    &:active{
+        animation-name: success-background;
+        animation-duration: .03s;
+    }
+
+    @media only screen and (max-width: $bp-smallest) {
+        padding: 0.7rem 1.5rem;
+    }
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & > label {
+        margin-bottom: -1rem;
+    }
+
+    & > h3 {
+        font-size: 2.5rem;
+    }
+
+}
+
+// Animations
+@keyframes success-background {
+    from {
+      background-color: yellowgreen;
+    }
+    to {
+      background-color: white;
+    }
+}

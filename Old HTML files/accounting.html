@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+        
+        <title>Apiary Management System v2</title>
+
+    </head>
+    <body class="container">
+        <div class="sidebar">
+            <div class="logo">
+                <svg class="logo-icon">
+                    <image xlink:href="img/bee.svg"></image>
+                </svg>
+                AMS v2
+            </div>
+            <ul class="sidebar-nav">
+                <li class="sidebar-nav__item">
+                    <a href="inspection" class="sidebar-nav__link">
+                        <span>Inspections</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="harvest" class="sidebar-nav__link">
+                        <span>Harvest</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="apiary" class="sidebar-nav__link">
+                        <span>Apiary</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="hives" class="sidebar-nav__link">
+                        <span>Hives</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="colony" class="sidebar-nav__link">
+                        <span>Colony</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="accounting" class="sidebar-nav__link">
+                        <span>Accounting</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item">
+                    <a href="profile" class="sidebar-nav__link">
+                        <span>Profile</span>
+                    </a>
+                </li>
+                <li class="sidebar-nav__item logOutBtn">
+                    <a href="index" class="sidebar-nav__link">
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <section class="container-body">
+            <div class="sub-nav">
+                <h1 class="sub-nav-header">Accounting</h1>
+                <div class="button">
+                    <button class="button-harvest-create">Add Revenue</button>
+                </div>
+                <div class="button">
+                    <button class="button-harvest-create open2">Add Expense</button>
+                </div>
+            </div>
+            <div class="content accounting">
+                <div class="accounting-details">
+                    <canvas class="accounting-details-chart" id="myChart"></canvas>
+                    <div class="accounting-details-top-5">
+                        <div class="accounting-details-top-5-revenue">
+                            <h3 class="accounting-details-top-5-revenue_header">Top 5 Revenue</h3>
+                            <ul class="accounting-details-top-5-revenue_list">
+                                <li>Honey A - $3100</li>
+                                <li>Honey B - $2200</li>
+                                <li>Queen Bee A - $1950</li>
+                                <li>Nuc A- $1650</li>
+                                <li>Nuc B - $790</li>
+                            </ul>
+                        </div>
+                        <div class="accounting-details-top-5-expense">
+                            <h3 class="accounting-details-top-5-expense_header">Top 5 Expenses</h3>
+                            <ul class="accounting-details-top-5-expense_list">
+                                <li>Hive Parts - $3100</li>
+                                <li>Bee Vitamins - $2200</li>
+                                <li>Soil - $1950</li>
+                                <li>Insecticide - $1650</li>
+                                <li>Bee Dance Music - $790</li>
+                            </ul>
+                        </div>
+                    </div> 
+
+                    <div class="create-revenue-record hidden open-window">
+                        <form class = "form-container">
+                            <button class="close-window">&times;</button>
+                            <h3>Record a Revenue</h2>
+                                <select id="revenue" name="revenue">
+                                    <option value="Honey">Honey</option>
+                                    <option value="Nucs">Nucs</option>
+                                    <option value="Queen">Queen</option>
+                                </select>                        
+                            <input type="text" id="revenue-record-description" name="revenue-record-description" placeholder="Description">
+                            <input type="number" id="revenue-record-revenue  on" name="revenue-record-revenue" placeholder="Revenue Amount">
+                            <input type="submit" value="Create">
+                        </form>    
+                    </div>
+    
+                    <div class="create-expense-record hidden open-window-2">
+                        <form class = "form-container">
+                            <button class="close-window">&times;</button>
+                            <h3>Record an Expense</h2>
+                                <select id="expense" name="expense">
+                                    <option value="Hive Parts">Hive Parts</option>
+                                    <option value="Bee Vitamins">Bee Vitamins</option>
+                                    <option value="Soil">Soil</option>
+                                </select>
+                                <input type="text" id="expense-record-description" name="expense-record-description" placeholder="Description">
+                                <input type="number" id="expense-record-revenue  on" name="expense-record-revenue" placeholder="Expense Amount">
+                            <input type="submit" value="Create">
+                        </form>    
+                    </div>
+                    <div class="overlay hidden"></div>
+                    <script src="script.js"></script>
+
+                    <script>
+                        var xAxis = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+                        var xValues = [860,1140,1060,1060,1070,1110,1330,2210,7830,2478];
+                        var yValues = [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000];
+                        var zValues = [800,560,640,840,890,1370,1890,1890,-1830,-4000];
+
+                        new Chart("myChart", {
+                          type: "line",
+                          data: {
+                                labels: xAxis,
+                                datasets: [{
+                                label: "Revenue", 
+                                data: yValues,
+                                borderColor: "green",
+                                fill: false
+                                },{ 
+                                label: "Expenses",
+                                data: xValues,
+                                borderColor: "red",
+                                fill: false
+                                },{ 
+                                label: "Profit",
+                                data: zValues,
+                                borderColor: "Yellow",
+                                fill: false
+                                }]
+                            },
+                          options: {
+                            legend: {
+                                position: 'bottom',
+                            },
+                            title: {
+                                display: true,
+                                text: "Profitability",
+                                fontSize: 16
+                            }
+                          }
+                        });
+                    </script>
+                </div>
+        </section>
+    </body>
+</html>

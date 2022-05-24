@@ -1,0 +1,123 @@
+.colony{
+    display: flex;
+    flex-direction: row;
+
+    @media only screen and (max-width: $bp-medium) {
+        flex-direction: column;
+    }
+
+    &-record {
+        display: flex;
+        flex-direction: row;
+
+        height: 80vh;
+        font-size: 1.5rem;
+    
+        display: flex;
+        flex-direction: column;
+        flex: 66%;
+        align-items: center;
+        justify-content:flex-start;
+    
+        margin: .5rem 1rem;
+        border-radius: 15px;
+
+        &-detail{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 90%;
+
+            margin: .5rem 1rem;
+            padding: .5rem;
+            border-radius: 15%;
+            background-color: $color-grey-light-5;
+
+            &-colony {
+                width: 30%;
+            }
+            
+            &-description {
+                width: 30%;
+            }
+            
+            &-composition {
+                width: 30%;
+            }
+        }
+
+        &-heading{
+            display: flex;
+            justify-content: space-around;
+            width: 90%;
+
+            margin: 1rem 1rem 0 1rem;
+            padding: .5rem;
+            color: white;
+            background-color: $color-grey-light-3;
+
+            &-colony {
+                width: 30%;
+            }
+            
+            &-description {
+                width: 30%;
+            }
+            
+            &-composition {
+                width: 30%;
+            }
+
+        }
+    }
+}
+
+.create-colony {
+    display: flex;
+    flex-direction: column;
+
+    & > h3 {
+        text-align: center;
+    }
+}
+
+.hidden {
+    display: none;
+}
+
+.open-window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+  
+    padding: 6rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.close-window {
+    position: absolute;
+    top: 1.2rem;
+    right: 2rem;
+    font-size: 5rem;
+    color: #333;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+  
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(3px);
+    z-index: 5;
+}
+
